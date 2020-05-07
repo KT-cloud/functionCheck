@@ -41,3 +41,6 @@ if __name__ == "__main__" :
         print "Volume Revert Success"
     else :
         print "Volume Revert Fail"
+    
+    cloudstack.deleteVolume({"id":vol_id})
+    cloudstack.deleteSnapshot({"id":snp_id})
