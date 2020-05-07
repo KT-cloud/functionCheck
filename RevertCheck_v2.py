@@ -8,7 +8,8 @@ cloudstack = CloudStack.Client(api, apikey, secret)
 
 if __name__ == "__main__" :
 
-    vol_id = '' # input volume id
+    new_vol = cloudstack.createVolume()
+    vol_id = new_vol['id']
     snp_name = 'automation_test'
     vol_name = 'automation_test'
 
