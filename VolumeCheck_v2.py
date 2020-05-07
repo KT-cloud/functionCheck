@@ -10,9 +10,9 @@ cloudstack = CloudStack.Client(api, apikey, secret)
 
 if __name__ == "__main__" :
 
-    vol = cloudstack.createVolume()
+    new_vol = cloudstack.createVolume()
 
-    vol_id = vol['id']
+    vol_id = new_vol['id']
     vm_id = '' # input vm id
 
     cloudstack.attachVolume({"id": vol_id, "virtualmachineid": vm_id})
@@ -37,4 +37,5 @@ if __name__ == "__main__" :
             print "\n[%s] detatch Fail" % (tar_vol['vmname'])
         except KeyError:
             print "detatch Success"
-
+            
+    cloudstack.deleteVolume({"id":vol_id})
